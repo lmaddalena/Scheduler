@@ -26,36 +26,43 @@ SchedulerAPP
   +-- SchedulerUnitTest (unit test)
 ```
 
-### Compiling the solution
+### To Compile the solution
 Move to the solution folder an type
 
 ```
 dotnet buid
 ```
 
+### To run the application
+Move to the SchedulerApi folder and type:
+
+```
+dotnet run
+```
+
 ### To add a Database migration
-Move to SchedulerApi folder and type:
+Move to the SchedulerApi folder and type:
 
 ```
 dotnet ef migrations add <NAME> -p ..\SchedulerData
 ```
 
 ### To update the Database
-Move to SchedulerApi folder and type:
+Move to the SchedulerApi folder and type:
 
 ```
 dotnet ef database update -p ..\SchedulerData
 ```
 
 ### To run Unit Test
-Move to SchedulerUnitTest folder and type:
+Move to the SchedulerUnitTest folder and type:
 
 ```
 dotnet test
 ```
 
 ### To run Integration Tests
-Move to SchedulerIntegrationTest folder and type:
+Move to the SchedulerIntegrationTest folder and type:
 
 ```
 dotnet test
