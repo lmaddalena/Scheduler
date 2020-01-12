@@ -64,22 +64,21 @@ namespace SchedulerData.Repository
         // get appointments by attendeeId and date
         public async Task<IEnumerable<Appointment>> GetAppointmentsByAttendeeIdAndDateAsync(string attendeeId, DateTime appointmentDate)
         {
-            var appointments =  from app in _dataContext.Appointments
-                                from att in app.Attendees
-                                where 
-                                    app.AppointmentID == att.AppointmentID &&
-                                    att.AttendeeID == attendeeId &&
-                                    app.AppointmentType == AppointmentTypeEnum.Meeting &&                          
-                                    app.AppointmentDateTime.Date == appointmentDate.Date ||
-                                        (
-                                            app.RecurrencyType == RecurrencyTypeEnum.Weekly &&
-                                            appointmentDate.Date > app.AppointmentDateTime.Date &&
-                                            appointmentDate.Date.DayOfWeek == app.AppointmentDateTime.Date.DayOfWeek
-                                        )
-                                select app;            
+            var appointmentIds = from att in _dataContext.Attendees
+                                 where att.AttendeeID == attendeeId
+                                 select att.AppointmentID;
+            
+            var appointments =  from a in _dataContext.Appointments
+                                where a.AppointmentDateTime.Date == appointmentDate.Date ||
+                                (
+                                    a.RecurrencyType == RecurrencyTypeEnum.Weekly &&
+                                    appointmentDate.Date > a.AppointmentDateTime.Date &&
+                                    appointmentDate.Date.DayOfWeek == a.AppointmentDateTime.Date.DayOfWeek
+                                ) &&
+                                appointmentIds.Contains(a.AppointmentID)
+                                select a;
 
-            return await appointments.Distinct().ToListAsync();
-
+            return await appointments.ToListAsync();
         }
 
         // get a reminder by id
