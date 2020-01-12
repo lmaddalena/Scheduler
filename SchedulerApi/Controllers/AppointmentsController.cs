@@ -32,7 +32,7 @@ namespace SchedulerApi.Controllers
             _logger.LogInformation(0, "Patch appointment with id: {0}, new appointment date: {1}", id, appointmentDateTime);
 
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             var data = await _appointmentRepository.GetByIdAsync(id);
 
@@ -62,7 +62,7 @@ namespace SchedulerApi.Controllers
             _logger.LogInformation(0, "Get appointments at: {0}", appointmentDate);
 
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             var data = await _appointmentRepository.GetAppointmentsByDateAsync(appointmentDate);            
             
@@ -100,7 +100,7 @@ namespace SchedulerApi.Controllers
             _logger.LogInformation(0, "Get appointments for attendee: {0} at: {1}", attendeeId, appointmentDate);
 
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             var data = await _appointmentRepository.GetAppointmentsByAttendeeIdAndDateAsync(attendeeId, appointmentDate);            
             

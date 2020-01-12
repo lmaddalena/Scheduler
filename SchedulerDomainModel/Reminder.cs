@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SchedulerDomainModel
 {
@@ -6,6 +7,7 @@ namespace SchedulerDomainModel
     {
         public Reminder() {}
 
+        [Required]
         public bool IsDone { get; set; }
     }
 }

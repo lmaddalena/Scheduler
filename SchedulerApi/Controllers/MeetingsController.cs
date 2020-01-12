@@ -31,7 +31,7 @@ namespace SchedulerApi.Controllers
             _logger.LogInformation(0, "Get meeting with id: {0}", id);
 
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             var dataMeeting = await _appointmentRepository.GetMeetingByIdAsync(id);
 
@@ -60,7 +60,7 @@ namespace SchedulerApi.Controllers
 
             // check the model state
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
             
             // add reminder to the repository
             var data = _appointmentRepository.Add(
@@ -96,7 +96,7 @@ namespace SchedulerApi.Controllers
             _logger.LogInformation(0, "Patch attendees in meeting with id: {0}", id);
 
             if(!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             var dataMeeting = await _appointmentRepository.GetMeetingByIdAsync(id);
 

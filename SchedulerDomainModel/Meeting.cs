@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SchedulerDomainModel
 {
@@ -7,6 +8,7 @@ namespace SchedulerDomainModel
     {
         public Meeting() { }
 
+        [Required]
         public RecurrencyTypeEnum RecurrencyType { get; set; }
 
         public IEnumerable<Attendee> Attendees { get; set; }
