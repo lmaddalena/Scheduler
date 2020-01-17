@@ -30,7 +30,7 @@ SchedulerAPP
 Move to the solution folder an type
 
 ```
-dotnet buid
+dotnet build
 ```
 
 ### To run the application
