@@ -70,6 +70,9 @@ dotnet test
 
 ## Web API
 
+### Swagger UI
+Visualize OpenApi specification at https://localhost:<port>/swagger
+
 ### Patch an appointment
 ```
 PATCH appointments/5
