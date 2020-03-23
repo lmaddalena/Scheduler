@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: list files
-      run: ls -h
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
