@@ -26,6 +26,7 @@ namespace SchedulerApi.Controllers
 
         // GET appointments/meetings/5
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IEnumerable<SchedulerDomainModel.Meeting>), (int)System.Net.HttpStatusCode.OK)]
         public async Task<IActionResult> Get(int id)
         {
             _logger.LogInformation(0, "Get meeting with id: {0}", id);
