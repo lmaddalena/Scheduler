@@ -20,4 +20,4 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: Unit Test with dotnet
-      run: dotnet test .\SchedulerUnitTest\  --configuration Release
+      run: dotnet test SchedulerUnitTest --configuration Release
