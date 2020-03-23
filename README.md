@@ -1,5 +1,6 @@
 # Scheduler Demo App
 ## Web API for appointments scheduling
+![.NET Core](https://github.com/lmaddalena/Scheduler/workflows/.NET%20Core/badge.svg)
 
 The app is developed in DotNet Core 3.0 using Visual Studio Code.
 For data storage I used SQLite.
